@@ -23,6 +23,10 @@ CONFIG = {
         "script.js",
         "package.json"
     ],
+    "assets": [
+        "assets/S__6586417 - 複製.jpg",
+        "assets/logo.svg"
+    ],
     "required_patterns": {
         "5T_compliance": [
             r"// 5T Protocol",
@@ -151,6 +155,18 @@ def main():
             results.append(True)
         else:
             print(f"  ✗ {filename}: NOT FOUND")
+            results.append(False)
+    
+    # Trustworthy: Asset existence verification
+    print("\n[Trustworthy] Asset Existence Verification:")
+    print("-" * 40)
+    for asset_path in CONFIG.get("assets", []):
+        full_path = project_root / asset_path
+        if full_path.exists():
+            print(f"  ✓ {asset_path}")
+            results.append(True)
+        else:
+            print(f"  ✗ {asset_path}: MISSING")
             results.append(False)
     
     # Tangible: No emoji verification
