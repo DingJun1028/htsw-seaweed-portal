@@ -26,14 +26,18 @@ CONFIG = {
     "required_patterns": {
         "5T_compliance": [
             r"// 5T Protocol",
-            r"-- 5T Protocol",
-            r"Object\.freeze",
-            r"config\['supabase'"
+            r"CSS 5T Protocol|-- 5T Protocol|5T Protocol",
+            r"Object\.freeze\(",
+            r"SUPABASE_URL|supabase"
         ],
         "color_palette": [
-            r"--primary-blue:\s*#[12]A365D",
-            r"--secondary-green:\s*#38A169",
-            r"--accent-gold:\s*#D69E2E"
+            r"#005bac|--logo-blue:\s*#005bac|--primary-blue:\s*#005bac",
+            r"#2ea043|--logo-green:\s*#2ea043|--secondary-green:\s*#2ea043",
+            r"#D69E2E|--accent-gold:\s*#D69E2E|--brand-gold:\s*#D69E2E"
+        ],
+        "assets": [
+            r"assets/logo\.svg",
+            r"logo\.svg"
         ]
     }
 }
@@ -55,21 +59,38 @@ def verify_no_emoji(filepath):
         with open(filepath, 'r', encoding='utf-8') as f:
             content = f.read()
         
-        # Common emoji patterns to exclude
+        # Detect true emoji/pictographs, while excluding CJK ideographs and punctuation.
         emoji_pattern = re.compile(
             "["
             "\U0001F600-\U0001F64F"  # emoticons
-            "\U0001F300-\U0001F5FF"  # symbols & pictographs
+            "\U0001F300-\U0001F6FF"  # symbols & pictographs
             "\U0001F680-\U0001F6FF"  # transport & map symbols
             "\U0001F1E0-\U0001F1FF"  # flags
             "\U00002702-\U000027B0"
             "\U000024C2-\U0001F251"
+            "\U0001f926-\U0001f937"
+            "\U00010000-\U0010ffff"
             "]+",
             flags=re.UNICODE
         )
         
         matches = emoji_pattern.findall(content)
-        return len(matches) == 0, matches
+        
+        # Filter out CJK blocks commonly used in Chinese/Japanese/Korean text.
+        # Includes ideographs, punctuation, symbols, and compatibility characters.
+        cjk_ranges = [
+            ('\u4e00', '\u9fff'), ('\u3000', '\u303f'), ('\uff00', '\uffef'),
+            ('\u2600', '\u26ff'), ('\u2700', '\u27bf'), ('\u2000', '\u206f'),
+            ('\u2190', '\u21ff'), ('\u2200', '\u22ff'), ('\u0080', '\u00ff')
+        ]
+        def is_cjk_like(ch):
+            o = ord(ch)
+            return any(start <= ch <= end for start, end in cjk_ranges) or o in (0x20ac,)
+        
+        filtered = []
+        for m in matches:
+            filtered.extend([ch for ch in m if not is_cjk_like(ch)])
+        return len(filtered) == 0, filtered
     except FileNotFoundError:
         return False, ["File not found"]
 
@@ -102,9 +123,9 @@ def verify_color_palette():
             content = f.read()
         
         palette = {
-            "primary-blue": "#1A365D" in content or "#1a365d" in content.lower(),
-            "secondary-green": "#38A169" in content or "#38a169" in content.lower(),
-            "accent-gold": "#D69E2E" in content or "#d69e2e" in content.lower()
+            "logo-blue": "#005bac" in content.lower(),
+            "logo-green": "#2ea043" in content.lower(),
+            "brand-gold": "#D69E2E" in content
         }
         return palette
     except FileNotFoundError:

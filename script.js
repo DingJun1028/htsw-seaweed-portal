@@ -1,4 +1,4 @@
-// ★ 5T Protocol JavaScript - High Tech Seaweed 官方網站
+// JavaScript 5T Protocol - High Tech Seaweed
 // Traceable: source_origin="frontend-main"
 // Trackable: lifecycle hooks for analytics
 // Tangible: smooth animations and interactions
@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const createMobileMenu = function() {
         const nav = document.querySelector('.nav');
         const menuButton = document.createElement('button');
-        menuButton.innerHTML = '☰';
+        menuButton.textContent = 'Menu';
         menuButton.style.cssText = `
             background: var(--primary-blue);
             color: white;

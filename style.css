@@ -1,17 +1,20 @@
-/* ★ CSS 5T Protocol - Nuber Platform ★ */
-/* 牧業減碳市場平台 • 海門冬 × CH4 解決方案 */
-/* 設計哲學：簡約線條風，Logo色 #3B72B9 #8CC63F 為主，無emoji */
+/* CSS 5T Protocol - High Tech Seaweed */
+/* 高科生技官方網站 • 海門冬 × CH4 解決方案 */
+/* 設計哲學：簡約線條風，logo 主色 #005bac + #2ea043，搭配暖金 #D69E2E，無 emoji */
 
 :root {
-    /* Logo Colors - Updated from Nuber Design */
-    --primary-blue: #3B72B9;      /* Nuber 主色 • 深海生技藍 */
-    --secondary-green: #8CC63F;   /* Nuber 點綴 • 萌芽嫩綠 */
-    --accent-gold: #D69E2E;       /* 補充點綴 • 暖金 */
-    --carbon-purple: #805AD5;     /* 碳中和紫 */
-    --light-bg: #FFFFFF;          /* 純白背景 */
-    --text-dark: #2B2B2B;         /* 炭灰 - Logo 標準字 */
-    --text-light: #4A5568;        /* 次要文字 */
-    --card-bg: #FFFFFF;           /* 卡片背景 */
+    /* Logo Colors - from brand mark */
+    --logo-blue: #005bac;
+    --logo-green: #2ea043;
+
+    /* Brand Colors - High Tech Seaweed */
+    --primary-blue: #005bac;
+    --secondary-green: #2ea043;
+    --accent-gold: #D69E2E;
+    --light-bg: #F7FAFC;
+    --text-dark: #1A202C;
+    --text-light: #4A5568;
+    --card-bg: #FFFFFF;
     --shadow: 0 4px 6px -1px rgba(0,0,0,0.08);
     --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -25,6 +28,40 @@
     --font-size-3xl: 1.875rem;
     --font-size-4xl: 2.25rem;
     --font-size-5xl: 3rem;
+}
+
+/* Logo Mark */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.logo-mark img {
+    display: block;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    object-fit: contain;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.logo-primary {
+    font-size: 1.35rem;
+    color: var(--primary-blue);
+    letter-spacing: -0.5px;
+}
+
+.logo-sub {
+    font-size: calc(var(--font-size-sm) - 0.025rem);
+    color: var(--text-light);
+    font-weight: 500;
 }
 
 /* 5T Reset & Base */
@@ -128,6 +165,17 @@ h4 { font-size: var(--font-size-xl); }
     align-items: center;
     height: 70px;
 }
+/* Hero asset */
+.hero-asset {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    margin-top: 18px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #eef6ff, #eaf7ef);
+    padding: 12px;
+}
 
 .logo {
     display: flex;
@@ -215,7 +263,7 @@ h4 { font-size: var(--font-size-xl); }
     align-items: center;
     padding: 0 0 80px;
     position: relative;
-    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+    background: linear-gradient(135deg, #F7FAFC 0%, #E2E8F0 100%);
 }
 
 .hero-content {
@@ -238,13 +286,37 @@ h4 { font-size: var(--font-size-xl); }
     color: var(--text-light);
     margin-bottom: 2.5rem;
     max-width: 650px;
-    background: linear-gradient(90deg, transparent 0%, transparent 95%, #ffffff 95%);
 }
 
 .cta-group {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+}
+
+.hero-visual-placeholder {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, #122B4D 100%);
+    border-radius: 1.5rem;
+    padding: 3rem;
+    color: white;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+}
+
+.hero-badge {
+    display: inline-block;
+    background: var(--accent-gold);
+    color: white;
+    font-weight: 700;
+    font-size: 1.25rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    margin-bottom: 1rem;
+}
+
+.hero-visual-caption {
+    opacity: 0.9;
+    font-size: 1rem;
 }
 
 /* Buttons */
@@ -269,7 +341,7 @@ h4 { font-size: var(--font-size-xl); }
 }
 
 .btn-primary:hover {
-    background: #2A5A9A;
+    background: #17324D;
     transform: translateY(-2px);
     box-shadow: 0 8px 15px -3px rgba(59, 114, 185, 0.25);
 }
@@ -331,7 +403,7 @@ section {
 
 /* Core Values (Pain Points) Section */
 .core-values {
-    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+    background: linear-gradient(135deg, #F7FAFC 0%, #E2E8F0 100%);
 }
 
 .values-grid {
@@ -423,7 +495,7 @@ section {
     color: white;
     font-weight: 600;
     font-size: 1rem;
-    background: linear-gradient(135deg, var(--primary-blue) 0%, #2C5282 100%);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, #122B4D 100%);
 }
 
 .product-info {
@@ -491,7 +563,7 @@ section {
 .quality-visual .badge {
     width: 200px;
     height: 200px;
-    background: linear-gradient(135deg, var(--primary-blue) 0%, #2C5282 100%);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, #122B4D 100%);
     border-radius: 50%;
     display: flex;
     flex-direction: column;
@@ -550,7 +622,7 @@ section {
 }
 
 .investor-item {
-    background: linear-gradient(135deg, var(--primary-blue) 0%, #2C5282 100%);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, #122B4D 100%);
     border-radius: 1rem;
     padding: 1.75rem;
     color: white;
@@ -591,7 +663,7 @@ section {
 
 /* Contact Section */
 .contact {
-    background: linear-gradient(135deg, var(--primary-blue) 0%, #2C5282 100%);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, #122B4D 100%);
     color: white;
 }
 
@@ -628,7 +700,7 @@ section {
 .contact textarea:focus {
     outline: none;
     border-color: var(--primary-blue);
-    box-shadow: 0 0 0 3px rgba(59, 114, 185, 0.2);
+    box-shadow: 0 0 0 3px rgba(26, 54, 93, 0.2);
 }
 
 .contact textarea {
