@@ -1,0 +1,49 @@
+{
+  "project": "Nuber",
+  "domain": "Nuber.esggo.co",
+  "target_server": "esggo.co",
+  "build_dir": "dist",
+  "deploy_method": "rsync",
+  "nginx_config": "nginx.conf",
+  "backup_existing": true,
+  "restart_services": true,
+  "dns_setup": {
+    "type": "CNAME",
+    "name": "Nuber.esggo.co",
+    "value": "esggo.co",
+    "ttl": 300
+  },
+  "ssl": {
+    "certbot": true,
+    "domains": [
+      "Nuber.esggo.co",
+      "www.Nuber.esggo.co"
+    ],
+    "renewal": "daily"
+  },
+  "pm2_config": {
+    "name": "nuber-web",
+    "script": "dist/index.html",
+    "instances": "1",
+    "watch": false,
+    "env": {
+      "NODE_ENV": "production"
+    }
+  },
+  "health_check": {
+    "endpoints": [
+      "/",
+      "/api/health"
+    ],
+    "expected_status": 200,
+    "timeout": 10
+  },
+  "monitoring": {
+    "uptime_robot": true,
+    "alerts": [
+      "email",
+      "slack"
+    ],
+    "backup_days": 7
+  }
+}

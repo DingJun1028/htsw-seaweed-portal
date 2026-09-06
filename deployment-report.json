@@ -1,0 +1,25 @@
+{
+  "project": "Nuber",
+  "domain": "Nuber.esggo.co",
+  "status": "completed",
+  "steps": 10,
+  "log": [
+    "[INFO] ==================================================",
+    "[INFO] \u2605 Nuber \u5e73\u53f0\u4f48\u7f72\u555f\u52d5 \u2605",
+    "[INFO] ==================================================",
+    "[INFO] \n--- \u9810\u6aa2 \u6b65\u9a5f ---",
+    "[INFO] \ud83d\udd0d \u57f7\u884c\u90e8\u7f72\u524d\u6aa2\u67e5...",
+    "[INFO] \u2705 \u90e8\u7f72\u524d\u6aa2\u67e5\u5b8c\u6210",
+    "[INFO] \n--- \u5efa\u7f6e \u6b65\u9a5f ---",
+    "[INFO] \ud83d\udd28 \u5efa\u7f6e\u751f\u7522\u74b0\u5883...",
+    "[ERROR] \u274c \u5efa\u7f6e\u5931\u6557: None",
+    "[ERROR] \u274c \u5efa\u7f6e \u5931\u6557"
+  ],
+  "next_steps": [
+    "\u66f4\u65b0 DNS \u8a18\u9304 (Nuber.esggo.co \u2192 CNAME \u2192 esggo.co)",
+    "\u8a2d\u5b9a SSL \u8b49\u66f8 (certbot)",
+    "\u914d\u7f6e nginx \u53cd\u5411\u4ee3\u7406",
+    "\u555f\u52d5 pm2 \u670d\u52d9",
+    "\u6e2c\u8a66 https://Nuber.esggo.co"
+  ]
+}
