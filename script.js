@@ -191,3 +191,25 @@ document.head.appendChild(style);
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { CONFIG, initSupabase, supabaseClient };
 }
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.querySelector('.contact-form');
+  if (!form) return;
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let valid = true;
+    const fields = form.querySelectorAll('input, textarea');
+    fields.forEach(field => {
+      const errorEl = field.parentElement.querySelector('.error');
+      if (!field.checkValidity() || !field.value.trim()) {
+        valid = false;
+        if (errorEl) errorEl.textContent = '請填寫正確內容';
+      } else if (errorEl) {
+        errorEl.textContent = '';
+      }
+    });
+    if (valid) {
+      if (errorEl) errorEl.textContent = '已送出諮詢，我們會儘快回覆。';
+      form.reset();
+    }
+  });
+});
