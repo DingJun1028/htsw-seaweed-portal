@@ -1,0 +1,16 @@
+{
+  "name": "高科生技 Hi-Tech Biotechnology",
+  "short_name": "高科生技",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f3ede1",
+  "theme_color": "#005bac",
+  "icons": [
+    {
+      "src": "assets/S__6586417 - 複製.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -27,6 +27,10 @@ CONFIG = {
         "assets/S__6586417 - 複製.jpg",
         "assets/logo.svg"
     ],
+    "pwa": [
+        "manifest.json",
+        "assets/icon-192.png"
+    ],
     "required_patterns": {
         "5T_compliance": [
             r"// 5T Protocol",
