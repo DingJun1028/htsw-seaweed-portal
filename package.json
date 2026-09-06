@@ -1,0 +1,16 @@
+{
+  "name": "high-tech-seaweed",
+  "version": "1.0.0",
+  "description": "高科生技官方網站",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  },
+  "keywords": ["high-tech", "seaweed", "sustainable"],
+  "author": "OA-Team 30",
+  "license": "MIT"
+}
